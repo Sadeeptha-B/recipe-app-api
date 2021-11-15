@@ -1,0 +1,18 @@
+version: "3" # Docker compose version
+# Docker compose is a tool to run our docker image easily. It allows to easily manage the different services that make up the project. It contains the config of all the services.
+
+
+# We have a service called app, and the build section of the configuration has the context: current directory. Port 8000 on host is mapped to port 8000 on our image. The volume allows us to get the updates made to the project to the docker image in real time: maps volume. The command is the command used to run the app in our docker container. sh -c means run the command with shell. 
+# 0.0.0.0:8000 means that it will run the django development server on all the IP addresses that run on the docker container
+services: 
+  app: 
+    build: 
+      context: .
+    ports: 
+      - "8000:8000"
+    volumes: 
+      - ./app:/app
+    command: >
+      sh -c "python manage.py runserver 0.0.0.0:8000"
+
+# To run docker-compose build (Build image with docker compose config)
