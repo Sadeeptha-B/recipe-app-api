@@ -1,0 +1,16 @@
+language: python
+python: 
+  - "3.6"
+# Tells what language to expect in our project
+
+# The service we need is docker with it's subservices specified in the DockerFile and docker-compose file configuration
+services:
+  - docker
+
+# Execute before automation commands
+before_script: pip install docker-compose
+
+script: 
+  - docker-compose run app sh -c "python manage.py test && flake8"
+
+# Travis will spin up a Python server and make the docker service available. It will pip install docker-compose and then run our script
