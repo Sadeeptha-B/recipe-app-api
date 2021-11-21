@@ -7,6 +7,9 @@ python:
 services:
   - docker
 
+before_install:
+  - echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin
+
 # Execute before automation commands
 before_script: pip install docker-compose
 
