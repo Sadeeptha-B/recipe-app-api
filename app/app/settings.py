@@ -120,5 +120,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+
+# New settings
+# ===============================================================
+
 AUTH_USER_MODEL = 'core.User' 
 # core- name of the app, User is the model

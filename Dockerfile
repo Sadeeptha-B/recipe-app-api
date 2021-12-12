@@ -3,6 +3,7 @@ LABEL maintainer="Sadeeptha Bandara"
 # Base image: alpine is lightweight
 
 # Running python in unbuffered mode is recommended for running python in docker containers. Outputs are not buffered.
+# This is an environment variable we're setting.
 ENV PYTHONUNBUFFERED 1
 
 # Dependencies
@@ -20,6 +21,7 @@ COPY ./app app
 
 # User that will run the app: Create user and switch to the user
 # This is done for security because if it is not done, the app will run under the root account of the image. So, we create a user just for the application.
+# -D : Create a user for running applications only
 RUN adduser -D user
 USER user
 

@@ -1,7 +1,8 @@
 from django.db import models
 
-# The Base user manager provides the helper functions for creating a user/super
-# user.
+# The Base user manager provides the helper functions for creating a user/superuser.
+# Imports required to extend the Django user model while making use 
+# of existing features
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager,\
      PermissionsMixin
 
@@ -24,7 +25,7 @@ class UserManager(BaseUserManager):
     # users using the cmd. No need to worry about extra fields since used
     # primarily with the cmd.
     def create_superuser(self, email, password):
-        """Creates and savea a new superuser"""
+        """Creates and saves a new superuser"""
         user = self.create_user(email, password)
         user.is_staff = True
         user.is_superuser = True
