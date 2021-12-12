@@ -32,6 +32,8 @@ class UserAdmin(BaseUserAdmin):
 
     # Fieldsets for the create user page
     add_fieldsets = (
+        # classes assigned to the form. Defaults taken from Django-admin documentation
+        # Include the comma at the end since one item only
         (None, {
             'classes':('wide',),
             'fields': ('email', 'password1', 'password2')
